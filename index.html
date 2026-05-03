@@ -1123,23 +1123,15 @@
         </div>
         <div class="form-group">
           <label>Wilaya <span class="req">*</span></label>
-          <select name="wilaya" required>
+          <select name="wilaya" id="wilayaSelect" required onchange="updateCommunes()">
             <option value="">Choisir une wilaya...</option>
-            <option>Alger (16)</option>
-            <option selected>M'Sila (28)</option>
-            <option>Oran (31)</option>
-            <option>Constantine (25)</option>
-            <option>Annaba (23)</option>
-            <option>Sétif (19)</option>
-            <option>Batna (05)</option>
-            <option>Tizi Ouzou (15)</option>
-            <option>Béjaïa (06)</option>
-            <option>Blida (09)</option>
           </select>
         </div>
         <div class="form-group">
-          <label>Commune / Quartier <span class="req">*</span></label>
-          <input type="text" name="commune" required placeholder="Cité 1006 logements">
+          <label>Commune <span class="req">*</span></label>
+          <select name="commune" id="communeSelect" required disabled>
+            <option value="">Choisissez d'abord une wilaya...</option>
+          </select>
         </div>
         <div class="form-group">
           <label>Adresse précise <span class="req">*</span></label>
@@ -1181,7 +1173,7 @@
       <div class="success-screen">
         <div class="success-icon">✓</div>
         <h2>C'est parti !</h2>
-        <p>Votre commande est envoyée sur WhatsApp. Nous vous appellons dans quelques minutes pour confirmer.</p>
+        <p>Votre commande est bien enregistrée. Nous vous appellons dans quelques minutes pour confirmer.</p>
         <button class="checkout-btn" onclick="resetOrder()">Nouvelle commande</button>
       </div>
     </div>
@@ -1194,11 +1186,91 @@
   // ====== CONFIGURATION — À MODIFIER ======
   const CONFIG = {
     restaurantName: "Le New Yorkais",
-    whatsappNumber: "213555123456", // votre numéro en format international (213 + numéro sans le 0)
     deliveryFee: 100,
     minOrder: 500,
     currency: "DA"
   };
+
+  // ====== WILAYAS & COMMUNES ======
+  const WILAYAS_COMMUNES = {
+    "Alger (16)": [
+      "Alger Centre", "Sidi M'Hamed", "El Madania", "Hamma El Annasser", "Bab El Oued",
+      "Bologhine", "Casbah", "Oued Koriche", "Bir Mourad Raïs", "El Biar",
+      "Bouzaréah", "Birkhadem", "El Harrach", "Baraki", "Oued Smar",
+      "Bourouba", "Hussein Dey", "Kouba", "Bachdjerrah", "Dar El Beïda",
+      "Bab Ezzouar", "Ben Aknoun", "Dely Ibrahim", "El Hammamet", "Raïs Hamidou",
+      "Djasr Kasentina", "El Mouradia", "Hydra", "Mohammadia", "Bordj El Kiffan",
+      "El Magharia", "Beni Messous", "Les Eucalyptus", "Birtouta", "Tessala El Merdja",
+      "Ouled Chebel", "Sidi Moussa", "Aïn Taya", "Bordj El Bahri", "El Marsa",
+      "Haraoua", "Rouïba", "Reghaïa", "Aïn Benian", "Staouéli",
+      "Zéralda", "Mahelma", "Rahmania", "Souidania", "Cheraga",
+      "Ouled Fayet", "El Achour", "Draria", "Douera", "Baba Hassen",
+      "Khraïssia", "Saoula"
+    ],
+    "Blida (09)": [
+      "Blida", "Boufarik", "Bouinan", "Soumaa", "Beni Mered", "Ouled Yaïch",
+      "Chebli", "Larbaa", "Bougara", "Mouzaia", "El Affroun", "Oued El Alleug"
+    ],
+    "Boumerdès (35)": [
+      "Boumerdès", "Boudouaou", "Réghaïa", "Khemis El Khechna", "Thénia",
+      "Dellys", "Bordj Menaïel", "Naciria", "Si Mustapha", "Beni Amrane"
+    ],
+    "Tipaza (42)": [
+      "Tipaza", "Cherchell", "Hadjout", "Koléa", "Bou Ismaïl", "Fouka",
+      "Douaouda", "Ahmer El Aïn", "Damous", "Gouraya"
+    ],
+    "Oran (31)": [
+      "Oran", "Bir El Djir", "Es Senia", "Arzew", "Bethioua", "Aïn El Türck",
+      "Mers El Kébir", "Gdyel", "Hassi Bounif", "Sidi Chahmi"
+    ],
+    "Constantine (25)": [
+      "Constantine", "Hamma Bouziane", "Didouche Mourad", "El Khroub", "Aïn Smara",
+      "Zighoud Youcef", "Ibn Ziad", "Aïn Abid"
+    ],
+    "Annaba (23)": [
+      "Annaba", "El Bouni", "El Hadjar", "Sidi Amar", "Berrahal", "Aïn Berda"
+    ],
+    "Sétif (19)": [
+      "Sétif", "El Eulma", "Aïn Oulmène", "Aïn Arnat", "Bougaâ", "Aïn Azel"
+    ],
+    "Batna (05)": [
+      "Batna", "Tazoult", "Aïn Touta", "Barika", "Arris", "Merouana", "N'Gaous"
+    ],
+    "Tizi Ouzou (15)": [
+      "Tizi Ouzou", "Azazga", "Draâ Ben Khedda", "Tigzirt", "Larbaâ Nath Irathen",
+      "Boghni", "Ouadhias", "Aïn El Hammam"
+    ],
+    "Béjaïa (06)": [
+      "Béjaïa", "Akbou", "El Kseur", "Sidi Aïch", "Tichy", "Souk El Tenine",
+      "Aokas", "Amizour"
+    ],
+    "M'Sila (28)": [
+      "M'Sila", "Bou Saâda", "Sidi Aïssa", "Aïn El Melh", "Magra", "Hammam Dhalaa"
+    ]
+  };
+
+  function populateWilayas() {
+    const select = document.getElementById("wilayaSelect");
+    Object.keys(WILAYAS_COMMUNES).forEach(w => {
+      const opt = document.createElement("option");
+      opt.value = w;
+      opt.textContent = w;
+      select.appendChild(opt);
+    });
+  }
+
+  function updateCommunes() {
+    const wilaya = document.getElementById("wilayaSelect").value;
+    const select = document.getElementById("communeSelect");
+    if (!wilaya || !WILAYAS_COMMUNES[wilaya]) {
+      select.innerHTML = '<option value="">Choisissez d\'abord une wilaya...</option>';
+      select.disabled = true;
+      return;
+    }
+    select.disabled = false;
+    select.innerHTML = '<option value="">Choisir une commune...</option>' +
+      WILAYAS_COMMUNES[wilaya].map(c => `<option>${c}</option>`).join("");
+  }
 
   // ====== MENU — VOTRE CARTE RÉELLE ======
   const MENU = [
@@ -1396,61 +1468,51 @@
   // ====== GOOGLE SHEETS LOGGING ======
   const SHEETS_URL = "https://script.google.com/macros/s/AKfycbxtnn9q70zy1dxZoyIfIpU29m-F0gL3WeiEYtEnVFK9pDeudcALATONROxmp85WSxcrsw/exec";
 
-  function logToSheets(payload) {
-    fetch(SHEETS_URL, {
-      method: "POST",
-      mode: "no-cors",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload)
-    }).catch(err => console.warn("Sheets log failed:", err));
-  }
-
   function submitOrder(e) {
     e.preventDefault();
     const data = new FormData(e.target);
     const subtotal = cart.reduce((s, c) => s + c.price * c.qty, 0);
     const total = subtotal + CONFIG.deliveryFee;
 
-    const itemsList = cart.map(c =>
-      `• ${c.qty}× ${c.name} — ${c.price * c.qty} ${CONFIG.currency}`
-    ).join("\n");
+    const itemsList = cart.map(c => `${c.qty}× ${c.name}`).join(" | ");
 
-    // ── Log to Google Sheets ──────────────────────────
-    logToSheets({
+    const payload = {
       name:     data.get("name"),
       phone:    data.get("phone"),
       address:  data.get("address"),
       commune:  data.get("commune"),
       wilaya:   data.get("wilaya"),
-      items:    cart.map(c => `${c.qty}× ${c.name}`).join(" | "),
+      items:    itemsList,
       subtotal: subtotal,
       delivery: CONFIG.deliveryFee,
       total:    total,
       payment:  data.get("payment") === "cash" ? "Espèces" : "Carte CIB",
       notes:    data.get("notes") || ""
+    };
+
+    // Disable submit button to prevent double-submission
+    const submitBtn = e.target.querySelector('button[type="submit"]');
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Envoi en cours...";
+    }
+
+    // text/plain avoids CORS preflight; Apps Script still parses JSON from postData
+    fetch(SHEETS_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify(payload)
+    })
+    .then(() => goToStep("success"))
+    .catch(err => {
+      console.error("Sheets error:", err);
+      showToast("Erreur d'envoi. Réessayez ou appelez-nous.");
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Confirmer la commande";
+      }
     });
-    // ─────────────────────────────────────────────────
-
-    const msg =
-`🛵 *NOUVELLE COMMANDE — ${CONFIG.restaurantName}*
-
-👤 *Client :* ${data.get('name')}
-📞 *Téléphone :* ${data.get('phone')}
-📍 *Adresse :* ${data.get('address')}, ${data.get('commune')}, ${data.get('wilaya')}
-
-📝 *Commande :*
-${itemsList}
-
-💰 *Sous-total :* ${subtotal} ${CONFIG.currency}
-🛵 *Livraison :* ${CONFIG.deliveryFee} ${CONFIG.currency}
-*TOTAL : ${total} ${CONFIG.currency}*
-
-💳 *Paiement :* ${data.get('payment') === 'cash' ? 'Espèces à la livraison' : 'Carte CIB'}
-${data.get('notes') ? `\n📌 *Notes :* ${data.get('notes')}` : ''}`;
-
-    const url = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(msg)}`;
-    window.open(url, '_blank');
-    goToStep("success");
   }
 
   function resetOrder() {
@@ -1475,6 +1537,7 @@ ${data.get('notes') ? `\n📌 *Notes :* ${data.get('notes')}` : ''}`;
   renderCategories();
   renderMenu();
   updateCart();
+  populateWilayas();
 </script>
 </body>
 </html>
