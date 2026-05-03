@@ -1393,6 +1393,18 @@
   });
 
   // ====== SUBMIT ORDER → WHATSAPP ======
+  // ====== GOOGLE SHEETS LOGGING ======
+  const SHEETS_URL = "https://script.google.com/macros/s/AKfycbxtnn9q70zy1dxZoyIfIpU29m-F0gL3WeiEYtEnVFK9pDeudcALATONROxmp85WSxcrsw/exec";
+
+  function logToSheets(payload) {
+    fetch(SHEETS_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    }).catch(err => console.warn("Sheets log failed:", err));
+  }
+
   function submitOrder(e) {
     e.preventDefault();
     const data = new FormData(e.target);
@@ -1402,6 +1414,22 @@
     const itemsList = cart.map(c =>
       `• ${c.qty}× ${c.name} — ${c.price * c.qty} ${CONFIG.currency}`
     ).join("\n");
+
+    // ── Log to Google Sheets ──────────────────────────
+    logToSheets({
+      name:     data.get("name"),
+      phone:    data.get("phone"),
+      address:  data.get("address"),
+      commune:  data.get("commune"),
+      wilaya:   data.get("wilaya"),
+      items:    cart.map(c => `${c.qty}× ${c.name}`).join(" | "),
+      subtotal: subtotal,
+      delivery: CONFIG.deliveryFee,
+      total:    total,
+      payment:  data.get("payment") === "cash" ? "Espèces" : "Carte CIB",
+      notes:    data.get("notes") || ""
+    });
+    // ─────────────────────────────────────────────────
 
     const msg =
 `🛵 *NOUVELLE COMMANDE — ${CONFIG.restaurantName}*
