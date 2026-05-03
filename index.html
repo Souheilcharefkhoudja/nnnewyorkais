@@ -1490,29 +1490,23 @@
       notes:    data.get("notes") || ""
     };
 
-    // Disable submit button to prevent double-submission
-    const submitBtn = e.target.querySelector('button[type="submit"]');
-    if (submitBtn) {
-      submitBtn.disabled = true;
-      submitBtn.textContent = "Envoi en cours...";
+    // ── FIRE-AND-FORGET: send in background, don't block UI ──
+    // sendBeacon is ideal — non-blocking, browser handles delivery even if user navigates away
+    const blob = new Blob([JSON.stringify(payload)], { type: "text/plain;charset=utf-8" });
+    const sent = navigator.sendBeacon ? navigator.sendBeacon(SHEETS_URL, blob) : false;
+    if (!sent) {
+      // Fallback for old browsers — fetch but don't await
+      fetch(SHEETS_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify(payload),
+        keepalive: true
+      }).catch(err => console.warn("Sheets log failed:", err));
     }
 
-    // text/plain avoids CORS preflight; Apps Script still parses JSON from postData
-    fetch(SHEETS_URL, {
-      method: "POST",
-      mode: "no-cors",
-      headers: { "Content-Type": "text/plain;charset=utf-8" },
-      body: JSON.stringify(payload)
-    })
-    .then(() => goToStep("success"))
-    .catch(err => {
-      console.error("Sheets error:", err);
-      showToast("Erreur d'envoi. Réessayez ou appelez-nous.");
-      if (submitBtn) {
-        submitBtn.disabled = false;
-        submitBtn.textContent = "Confirmer la commande";
-      }
-    });
+    // ── INSTANT SUCCESS — customer sees confirmation immediately ──
+    goToStep("success");
   }
 
   function resetOrder() {
