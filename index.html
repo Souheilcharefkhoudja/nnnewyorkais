@@ -224,252 +224,140 @@
     margin-bottom: -6px;
     margin-left: 12px;
   }
-  h1.hero-title {
+  .hero-title {
     font-family: var(--display);
-    font-size: clamp(56px, 11vw, 130px);
-    line-height: 0.88;
+    color: var(--ink);
+    font-size: clamp(40px, 7vw, 80px);
+    line-height: 0.9;
+    margin-bottom: 20px;
     letter-spacing: -0.02em;
-    margin-bottom: 26px;
-    text-transform: uppercase;
   }
-  h1.hero-title .red { color: var(--red); }
-  h1.hero-title .stroke {
-    -webkit-text-stroke: 2px var(--ink);
-    color: transparent;
-  }
-  .hero-text {
+  .hero-desc {
     font-size: 17px;
     color: var(--muted);
-    max-width: 460px;
-    margin-bottom: 30px;
+    margin-bottom: 32px;
+    max-width: 500px;
   }
   .hero-cta {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
-  .btn {
     display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 16px 28px;
-    border-radius: 999px;
-    font-family: var(--display);
-    font-size: 14px;
-    text-decoration: none;
-    cursor: pointer;
-    border: 3px solid var(--ink);
-    transition: all 0.15s;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
+    gap: 12px;
   }
-  .btn-primary {
+  .cta-btn {
+    padding: 14px 28px;
+    border: none;
+    border-radius: 8px;
+    font-family: var(--body);
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+  }
+  .cta-btn-primary {
     background: var(--red);
     color: #fff;
   }
-  .btn-primary:hover {
-    background: var(--ink);
-    transform: translateY(-2px);
-    box-shadow: 5px 5px 0 var(--red);
+  .cta-btn-primary:hover { background: var(--red-dark); transform: translateY(-2px); }
+  .cta-btn-secondary {
+    background: transparent;
+    color: var(--red);
+    border: 3px solid var(--red);
   }
-  .btn-ghost {
-    background: var(--cream);
-    color: var(--ink);
-  }
-  .btn-ghost:hover {
-    background: var(--ink);
-    color: var(--cream);
-  }
-
-  /* hero visual: striped box */
+  .cta-btn-secondary:hover { background: var(--red); color: #fff; }
   .hero-visual {
     position: relative;
-    aspect-ratio: 1/1;
-    max-width: 460px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .hero-visual img { max-width: 100%; height: auto; }
+
+  /* ============ MENU ============ */
+  #menu {
+    padding: 60px 0;
+    background: var(--cream);
+  }
+  .menu-header {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  .menu-eyebrow {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 12px;
+  }
+  .menu-title {
+    font-family: var(--display);
+    font-size: clamp(36px, 5vw, 56px);
+    color: var(--ink);
+    margin-bottom: 14px;
+  }
+  .menu-subtitle {
+    font-size: 16px;
+    color: var(--muted);
+    max-width: 600px;
     margin: 0 auto;
   }
-  .hero-box {
-    position: absolute;
-    inset: 6%;
-    background: var(--cream);
-    border: 4px solid var(--ink);
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 12px 12px 0 var(--ink);
-    transform: rotate(-3deg);
-  }
-  .hero-box-stripes {
-    height: 100%;
-    background: repeating-linear-gradient(
-      90deg,
-      var(--red) 0 28px,
-      #fff 28px 56px
-    );
-    display: grid;
-    place-items: center;
-    position: relative;
-  }
-  .hero-emoji {
-    font-size: clamp(120px, 22vw, 240px);
-    filter: drop-shadow(6px 6px 0 rgba(0,0,0,0.3));
-  }
-  .hero-badge {
-    position: absolute;
-    background: var(--ink);
-    color: var(--gold);
-    width: 110px; height: 110px;
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-    text-align: center;
-    font-family: var(--display);
-    font-size: 13px;
-    line-height: 1.05;
-    border: 4px solid var(--cream);
-    z-index: 2;
-  }
-  .hero-badge.b1 {
-    top: -8px; right: -10px;
-    animation: rotate 14s linear infinite;
-  }
-  .hero-badge.b2 {
-    bottom: 8px; left: -16px;
-    background: var(--red);
-    color: #fff;
-    width: 96px; height: 96px;
-    font-size: 12px;
-    transform: rotate(8deg);
-  }
-  @keyframes rotate { to { transform: rotate(360deg); } }
-
-  .hero-stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    margin-top: 36px;
-    padding-top: 28px;
-    border-top: 2px dashed var(--line);
-  }
-  .stat .num {
-    font-family: var(--display);
-    font-size: clamp(24px, 4vw, 32px);
-    color: var(--red);
-    line-height: 1;
-  }
-  .stat .lbl {
-    font-size: 11px;
-    color: var(--muted);
-    font-weight: 700;
-    margin-top: 6px;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-  }
-
-  /* ============ SECTION HEADER ============ */
-  .menu-section {
-    padding: 80px 0;
-    border-top: 3px solid var(--ink);
-    border-bottom: 3px solid var(--ink);
-    background: #fff;
-    position: relative;
-  }
-  .section-header {
+  #categories {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin-bottom: 40px;
     gap: 10px;
-  }
-  .section-eyebrow {
-    font-family: var(--script);
-    color: var(--red);
-    font-size: 32px;
-    line-height: 1;
-    transform: rotate(-3deg);
-  }
-  .section-title {
-    font-family: var(--display);
-    font-size: clamp(40px, 7vw, 80px);
-    line-height: 0.95;
-    letter-spacing: -0.01em;
-    text-transform: uppercase;
-  }
-  .section-title .red { color: var(--red); }
-  .section-sub {
-    color: var(--muted);
-    font-size: 15px;
-    max-width: 420px;
-  }
-
-  .categories {
-    display: flex;
-    gap: 8px;
-    overflow-x: auto;
-    padding-bottom: 6px;
-    margin-bottom: 32px;
-    justify-content: flex-start;
-    scrollbar-width: thin;
-  }
-  @media (min-width: 700px) {
-    .categories { justify-content: center; flex-wrap: wrap; }
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
   }
   .cat-btn {
-    flex-shrink: 0;
-    background: var(--cream);
-    border: 3px solid var(--ink);
+    padding: 8px 18px;
+    border: 2px solid var(--ink);
+    background: transparent;
     color: var(--ink);
-    padding: 9px 18px;
     border-radius: 999px;
     font-family: var(--body);
     font-weight: 700;
     font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
     cursor: pointer;
     transition: all 0.15s;
-    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
   }
-  .cat-btn:hover { background: var(--ink); color: var(--cream); }
+  .cat-btn:hover { background: var(--ink); color: #fff; }
   .cat-btn.active {
     background: var(--red);
-    border-color: var(--ink);
+    border-color: var(--red);
     color: #fff;
-    box-shadow: 3px 3px 0 var(--ink);
   }
 
-  /* ============ MENU ITEMS ============ */
-  .menu-grid {
+  #menuGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 18px;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 24px;
   }
+
   .item {
     background: #fff;
     border: 3px solid var(--ink);
-    border-radius: 16px;
+    border-radius: 12px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    transition: transform 0.18s, box-shadow 0.18s;
-    position: relative;
+    transition: all 0.2s;
   }
   .item:hover {
     transform: translateY(-4px);
-    box-shadow: 6px 6px 0 var(--red);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.12);
   }
+
   .item-img {
-    aspect-ratio: 4/3;
-    background: repeating-linear-gradient(
-      90deg,
-      var(--red) 0 22px,
-      #fff 22px 44px
-    );
-    display: grid;
-    place-items: center;
+    background: linear-gradient(135deg, #fff 0%, #f5f5f5 100%);
+    height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
     font-size: 76px;
     border-bottom: 3px solid var(--ink);
-    position: relative;
     overflow: hidden;
   }
   .item-img .emoji {
@@ -481,6 +369,11 @@
     place-items: center;
     border: 3px solid var(--ink);
     box-shadow: inset 0 -4px 0 rgba(0,0,0,0.06);
+  }
+  .item-img .item-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
   .item-num {
     position: absolute;
@@ -601,339 +494,290 @@
     display: grid;
     place-items: center;
     font-size: 24px;
-    margin-bottom: 14px;
-    border: 2px solid var(--gold);
-  }
-
-  /* ============ FOOTER ============ */
-  footer {
-    background: var(--cream);
-    padding: 60px 0 30px;
-    border-top: 3px solid var(--ink);
-  }
-  .footer-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 30px;
-    margin-bottom: 36px;
-  }
-  @media (min-width: 700px) {
-    .footer-grid { grid-template-columns: 2fr 1fr 1fr; }
-  }
-  .footer-grid h4 {
-    font-family: var(--display);
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    margin-bottom: 14px;
-  }
-  .footer-grid p, .footer-grid a {
-    color: var(--muted);
-    font-size: 14px;
-    text-decoration: none;
-    display: block;
-    margin-bottom: 5px;
-  }
-  .footer-grid a:hover { color: var(--red); }
-  .footer-bottom {
-    border-top: 2px dashed var(--line);
-    padding-top: 22px;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 12px;
-    font-size: 12px;
-    color: var(--muted);
+    margin-bottom: 12px;
   }
 
   /* ============ CART DRAWER ============ */
-  .cart-overlay {
+  #cartOverlay {
     position: fixed;
     inset: 0;
-    background: rgba(14,14,14,0.5);
-    backdrop-filter: blur(4px);
-    z-index: 90;
+    background: rgba(0,0,0,0.4);
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.25s;
+    transition: opacity 0.3s;
+    z-index: 49;
   }
-  .cart-overlay.open { opacity: 1; pointer-events: auto; }
-  .cart-drawer {
+  #cartOverlay.open { opacity: 1; pointer-events: all; }
+
+  #cartDrawer {
     position: fixed;
-    top: 0; right: 0;
-    height: 100dvh;
+    right: 0;
+    top: 0;
     width: 100%;
-    max-width: 460px;
-    background: var(--cream);
-    z-index: 100;
+    max-width: 420px;
+    height: 100vh;
+    background: #fff;
+    box-shadow: -4px 0 20px rgba(0,0,0,0.1);
     transform: translateX(100%);
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.3s ease;
+    z-index: 50;
     display: flex;
     flex-direction: column;
-    border-left: 3px solid var(--ink);
   }
-  .cart-drawer.open { transform: translateX(0); }
-  .cart-head {
+  #cartDrawer.open { transform: translateX(0); }
+
+  @media (max-width: 480px) {
+    #cartDrawer { max-width: 100%; }
+  }
+
+  .cart-header {
     padding: 20px 22px;
     border-bottom: 3px solid var(--ink);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: var(--red);
-    color: #fff;
-    position: relative;
   }
-  .cart-head::after {
-    content: '';
-    position: absolute;
-    bottom: -3px; left: 0; right: 0;
-    height: 8px;
-    background: repeating-linear-gradient(90deg, #fff 0 14px, var(--red) 14px 28px);
-  }
-  .cart-head h2 {
+  #cartTitle {
     font-family: var(--display);
     font-size: 22px;
-    text-transform: uppercase;
-    letter-spacing: -0.01em;
+    color: var(--ink);
   }
-  .close-btn {
-    background: var(--ink);
-    color: var(--gold);
+  .cart-close {
+    background: none;
     border: none;
-    width: 36px; height: 36px;
-    border-radius: 50%;
-    font-size: 16px;
+    font-size: 24px;
     cursor: pointer;
+    color: var(--ink);
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
   }
-  .cart-body {
+  .cart-close:hover { color: var(--red); }
+
+  #cartBody {
     flex: 1;
     overflow-y: auto;
-    padding: 22px 22px 18px;
+    padding: 20px;
   }
   .cart-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
     text-align: center;
-    padding: 50px 16px;
-    color: var(--muted);
+    gap: 16px;
   }
-  .cart-empty-emoji { font-size: 64px; margin-bottom: 14px; }
+  .cart-empty-emoji { font-size: 60px; }
+  .cart-empty p { color: var(--muted); line-height: 1.5; }
+
   .cart-item {
     display: flex;
     gap: 12px;
-    padding: 14px 0;
-    border-bottom: 1px dashed var(--line);
+    padding: 16px;
+    border: 2px solid var(--line);
+    border-radius: 8px;
+    margin-bottom: 12px;
     align-items: center;
   }
   .cart-item-img {
-    width: 54px; height: 54px;
-    background: repeating-linear-gradient(90deg, var(--red) 0 10px, #fff 10px 20px);
-    border-radius: 10px;
+    width: 60px;
+    height: 60px;
+    background: #f0f0f0;
+    border-radius: 8px;
     display: grid;
     place-items: center;
-    font-size: 24px;
+    font-size: 28px;
     flex-shrink: 0;
-    border: 2px solid var(--ink);
-    overflow: hidden;
   }
-  .cart-item-img span {
-    background: #fff; border-radius: 50%;
-    width: 38px; height: 38px;
-    display: grid; place-items: center;
-    border: 1px solid var(--ink);
-  }
-  .cart-item-info { flex: 1; min-width: 0; }
+  .cart-item-info { flex: 1; }
   .cart-item-name {
     font-weight: 700;
     font-size: 14px;
     margin-bottom: 4px;
-    line-height: 1.2;
   }
-  .cart-item-price { font-size: 13px; color: var(--red); font-weight: 700; }
+  .cart-item-price { color: var(--red); font-weight: 700; }
   .qty {
     display: flex;
+    gap: 8px;
     align-items: center;
-    gap: 6px;
-    background: #fff;
     border: 2px solid var(--ink);
-    border-radius: 999px;
-    padding: 3px;
+    border-radius: 6px;
+    overflow: hidden;
   }
   .qty button {
-    width: 24px; height: 24px;
-    border: none;
     background: transparent;
+    border: none;
+    width: 28px;
+    height: 28px;
     cursor: pointer;
     font-weight: 700;
-    border-radius: 50%;
-  }
-  .qty button:hover { background: var(--cream); }
-  .qty span { min-width: 18px; text-align: center; font-size: 13px; font-weight: 700; }
-
-  .cart-foot {
-    padding: 18px 22px;
-    border-top: 3px solid var(--ink);
-    background: #fff;
-  }
-  .cart-foot.hidden { display: none; }
-  .totals { margin-bottom: 14px; }
-  .totals-row {
-    display: flex;
-    justify-content: space-between;
-    padding: 5px 0;
     font-size: 14px;
   }
-  .totals-row.total {
-    font-family: var(--display);
-    font-size: 22px;
-    border-top: 2px dashed var(--line);
-    padding-top: 12px;
-    margin-top: 6px;
+  .qty button:hover { background: var(--gold); }
+  .qty span { padding: 0 8px; font-weight: 700; }
+
+  #cartFoot {
+    padding: 20px;
+    border-top: 3px solid var(--ink);
+    background: var(--cream);
   }
+  #cartFoot.hidden { display: none; }
+  .cart-summary {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    font-size: 14px;
+  }
+  .cart-summary strong { color: var(--red); }
+  .cart-total {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-top: 2px solid var(--ink);
+    margin-bottom: 16px;
+    font-family: var(--display);
+    font-size: 20px;
+  }
+  .cart-total strong { color: var(--red); }
   .checkout-btn {
     width: 100%;
+    padding: 14px;
     background: var(--red);
     color: #fff;
-    border: 3px solid var(--ink);
-    padding: 16px;
-    border-radius: 999px;
-    font-family: var(--display);
-    font-size: 15px;
+    border: none;
+    border-radius: 8px;
+    font-family: var(--body);
+    font-weight: 700;
     cursor: pointer;
-    transition: all 0.15s;
+    transition: all 0.2s;
     text-transform: uppercase;
-    letter-spacing: 0.04em;
   }
-  .checkout-btn:hover {
-    background: var(--ink);
-    box-shadow: 4px 4px 0 var(--red);
-    transform: translateY(-2px);
+  .checkout-btn:hover { background: var(--red-dark); }
+  .checkout-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
   }
 
-  /* ============ CHECKOUT FORM ============ */
-  .checkout-step { display: none; flex-direction: column; flex: 1; min-height: 0; }
-  .checkout-step.active { display: flex; }
-  .form-group { margin-bottom: 14px; }
+  /* ============ CHECKOUT ============ */
+  .checkout-step { display: none; }
+  .checkout-step.active { display: block; }
+
+  #step-form {
+    padding: 20px;
+  }
+  .form-group {
+    margin-bottom: 16px;
+  }
   .form-group label {
     display: block;
-    font-size: 12px;
     font-weight: 700;
     margin-bottom: 6px;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
+    font-size: 14px;
   }
-  .form-group label .req { color: var(--red); }
   .form-group input,
-  .form-group textarea,
-  .form-group select {
+  .form-group select,
+  .form-group textarea {
     width: 100%;
-    padding: 12px 14px;
-    border: 2px solid var(--ink);
-    border-radius: 12px;
+    padding: 10px;
+    border: 2px solid var(--line);
+    border-radius: 6px;
     font-family: var(--body);
-    font-size: 15px;
-    background: #fff;
-    transition: border-color 0.15s;
+    font-size: 14px;
   }
   .form-group input:focus,
-  .form-group textarea:focus,
-  .form-group select:focus {
+  .form-group select:focus,
+  .form-group textarea:focus {
     outline: none;
     border-color: var(--red);
-    box-shadow: 0 0 0 3px rgba(217,38,38,0.15);
+    box-shadow: 0 0 0 3px rgba(217,38,38,0.1);
   }
-  .pay-options { display: grid; gap: 10px; }
-  .pay-opt {
-    border: 2px solid var(--ink);
-    border-radius: 12px;
-    padding: 12px;
-    cursor: pointer;
+  .pay-opts {
     display: flex;
     gap: 12px;
-    align-items: center;
-    background: #fff;
+    margin-bottom: 16px;
+  }
+  .pay-opt {
+    flex: 1;
+    padding: 12px;
+    border: 2px solid var(--line);
+    border-radius: 8px;
+    cursor: pointer;
     transition: all 0.15s;
   }
-  .pay-opt:hover { background: var(--cream); }
+  .pay-opt:hover { border-color: var(--red); }
   .pay-opt.selected {
-    background: rgba(217,38,38,0.08);
-    box-shadow: 3px 3px 0 var(--red);
+    border-color: var(--red);
+    background: rgba(217,38,38,0.05);
   }
-  .pay-opt input { display: none; }
-  .pay-opt-icon {
-    width: 36px; height: 36px;
-    background: var(--cream);
-    border: 2px solid var(--ink);
-    border-radius: 8px;
-    display: grid;
-    place-items: center;
-    font-size: 18px;
+  .pay-opt input {
+    display: none;
   }
-  .pay-opt-text { flex: 1; }
-  .pay-opt-text strong { font-size: 14px; display: block; }
-  .pay-opt-text span { font-size: 12px; color: var(--muted); }
-
-  .back-link {
-    display: inline-flex;
+  .pay-opt label {
+    display: flex;
     align-items: center;
-    gap: 6px;
-    background: none;
-    border: none;
+    gap: 8px;
+    cursor: pointer;
+    margin: 0;
+    font-size: 14px;
+  }
+  .pay-opt input:checked + label::before {
+    content: '✓';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: var(--red);
+    color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    font-weight: 700;
+  }
+
+  #step-success {
+    padding: 40px 20px;
+    text-align: center;
+  }
+  .success-emoji { font-size: 60px; margin-bottom: 16px; }
+  .success-text {
+    font-size: 16px;
+    margin-bottom: 24px;
     color: var(--muted);
-    font-size: 13px;
+  }
+  .new-order-btn {
+    padding: 12px 24px;
+    background: var(--red);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
     font-weight: 700;
     cursor: pointer;
-    margin-bottom: 14px;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-  }
-  .back-link:hover { color: var(--ink); }
-
-  /* ============ SUCCESS ============ */
-  .success-screen {
-    text-align: center;
-    padding: 30px 18px;
-  }
-  .success-icon {
-    width: 80px; height: 80px;
-    margin: 0 auto 20px;
-    background: #dcfce7;
-    border: 3px solid #16a34a;
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-    font-size: 36px;
-    animation: pop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-  }
-  @keyframes pop { from { transform: scale(0); } to { transform: scale(1); } }
-  .success-screen h2 {
-    font-family: var(--display);
-    font-size: 28px;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-  }
-  .success-screen p {
-    color: var(--muted);
-    margin-bottom: 22px;
-    max-width: 320px;
-    margin-left: auto;
-    margin-right: auto;
+    font-size: 14px;
   }
 
   /* ============ TOAST ============ */
-  .toast {
+  #toast {
     position: fixed;
-    bottom: 22px; left: 50%;
-    transform: translateX(-50%) translateY(100px);
+    bottom: -100px;
+    left: 50%;
+    transform: translateX(-50%);
     background: var(--ink);
-    color: var(--cream);
-    padding: 12px 20px;
-    border-radius: 999px;
-    font-size: 14px;
-    font-weight: 700;
-    z-index: 200;
-    transition: transform 0.3s;
-    border: 2px solid var(--gold);
+    color: #fff;
+    padding: 14px 24px;
+    border-radius: 8px;
+    z-index: 60;
+    transition: bottom 0.3s;
+    max-width: 90%;
   }
-  .toast.show { transform: translateX(-50%) translateY(0); }
+  #toast.show { bottom: 20px; }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 640px) {
+    .hero-title { font-size: 42px; }
+    .menu-title { font-size: 32px; }
+    #menuGrid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+    .item-img { height: 200px; }
+  }
 </style>
 </head>
 <body>
@@ -941,360 +785,217 @@
 <!-- TICKER -->
 <div class="ticker">
   <div class="ticker-track">
-    <span>SMASH BURGERS NYC STYLE</span>
-    <span>LIVRAISON 7J/7</span>
-    <span>PAIEMENT À LA LIVRAISON</span>
-    <span>EAT · SMASH · REPEAT</span>
-    <span>COMMANDEZ AU 0555 12 34 56</span>
-    <span>SMASH BURGERS NYC STYLE</span>
-    <span>LIVRAISON 7J/7</span>
-    <span>PAIEMENT À LA LIVRAISON</span>
-    <span>EAT · SMASH · REPEAT</span>
-    <span>COMMANDEZ AU 0555 12 34 56</span>
+    <span>🍔 SMASH BURGERS EN LIGNE 24/7</span>
+    <span>🍔 SMASH BURGERS EN LIGNE 24/7</span>
   </div>
 </div>
 
 <!-- HEADER -->
 <header>
-  <div class="container nav">
+  <div class="nav container">
     <a href="#" class="brand">
-      <span class="brand-mark">NY</span>
-      <span class="brand-text">
-        <span class="le">Le</span>
+      <div class="brand-mark">S</div>
+      <div class="brand-text">
+        <span class="le">le</span>
         <span class="name">NEW YORKAIS</span>
-      </span>
+      </div>
     </a>
     <nav class="nav-links">
       <a href="#menu">Menu</a>
-      <a href="#info">Livraison</a>
+      <a href="#about">À Propos</a>
       <a href="#contact">Contact</a>
     </nav>
     <button class="cart-btn" onclick="openCart()">
-      <span>🛒</span> <span>Panier</span>
-      <span class="cart-count" id="cartCount">0</span>
+      🛒 <span id="cartCount">0</span>
     </button>
   </div>
 </header>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="container hero-grid">
-    <div>
-      <span class="hero-eyebrow">Ouvert · Livraison en 30 min</span>
-      <span class="hero-le">Le vrai</span>
-      <h1 class="hero-title">
-        <span class="red">Smash</span><br>
-        <span class="stroke">Burger</span><br>
-        New Yorkais
-      </h1>
-      <p class="hero-text">
-        Boxes garnies, smash burgers grillés, pasta crémeuses. Le goût de New York,
-        livré à votre porte. Commandez en ligne, payez à la livraison.
-      </p>
-      <div class="hero-cta">
-        <a href="#menu" class="btn btn-primary">Voir le menu →</a>
-        <a href="tel:0555123456" class="btn btn-ghost">📞 Appeler</a>
-      </div>
-      <div class="hero-stats">
-        <div class="stat"><div class="num">30min</div><div class="lbl">Livraison</div></div>
-        <div class="stat"><div class="num">100%</div><div class="lbl">Halal</div></div>
-        <div class="stat"><div class="num">4.9★</div><div class="lbl">Note clients</div></div>
-      </div>
-    </div>
-    <div class="hero-visual">
-      <div class="hero-box">
-        <div class="hero-box-stripes">
-          <div class="hero-emoji">🍔</div>
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-eyebrow">BIENVENUE</div>
+        <h1>
+          <span class="hero-le">le</span>
+          <span class="hero-title">NEW<br>YORKAIS</span>
+        </h1>
+        <p class="hero-desc">Des smash burgers authentiques, des frites maison, et des saveurs qui explosent en bouche. Commandez maintenant et livraison rapide à Alger.</p>
+        <div class="hero-cta">
+          <a href="#menu" class="cta-btn cta-btn-primary">Voir le Menu</a>
+          <a href="#contact" class="cta-btn cta-btn-secondary">Contactez-Nous</a>
         </div>
       </div>
-      <div class="hero-badge b1">SMASH<br>NYC<br>STYLE</div>
-      <div class="hero-badge b2">100%<br>HALAL</div>
     </div>
   </div>
 </section>
 
 <!-- MENU -->
-<section class="menu-section" id="menu">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-eyebrow">notre carte</div>
-      <h2 class="section-title">Le <span class="red">Menu</span></h2>
-      <p class="section-sub">Tout est préparé à la commande, viande fraîche, fromage qui dégouline. Smash style.</p>
-    </div>
-
-    <div class="categories" id="categories"></div>
-    <div class="menu-grid" id="menuGrid"></div>
+<section id="menu" class="container" style="padding-top: 60px; padding-bottom: 60px;">
+  <div class="menu-header">
+    <div class="menu-eyebrow">NOTRE SÉLECTION</div>
+    <h2 class="menu-title">Smash Burgers & Boxes</h2>
+    <p class="menu-subtitle">Burgers artisanaux, frais et délicieux, préparés avec passion</p>
   </div>
+
+  <div id="categories"></div>
+
+  <div id="menuGrid"></div>
 </section>
 
-<!-- INFO -->
-<section class="info-strip" id="info">
-  <div class="container info-grid">
-    <div class="info-card">
-      <div class="info-icon">🛵</div>
-      <h3>Livraison rapide</h3>
-      <p>Livré en 30 minutes dans toute la wilaya. Frais de livraison à partir de 100 DA.</p>
-    </div>
-    <div class="info-card">
-      <div class="info-icon">💵</div>
-      <h3>Paiement livraison</h3>
-      <p>Payez en espèces au livreur. Pas de surprise, pas de frais cachés.</p>
-    </div>
-    <div class="info-card">
-      <div class="info-icon">⏰</div>
-      <h3>Ouvert 7j/7</h3>
-      <p>Tous les jours de 11h à 23h. Vendredi à partir de 14h après la prière.</p>
-    </div>
-    <div class="info-card">
-      <div class="info-icon">📱</div>
-      <h3>Commande WhatsApp</h3>
-      <p>Confirmation instantanée par WhatsApp. Suivi de commande en temps réel.</p>
+<!-- INFO STRIP -->
+<section class="info-strip">
+  <div class="container">
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="info-icon">⚡</div>
+        <h3>Livraison Rapide</h3>
+        <p>Livraison en 30-45 minutes partout à Alger</p>
+      </div>
+      <div class="info-card">
+        <div class="info-icon">✨</div>
+        <h3>Frais Chaque Jour</h3>
+        <p>Tous nos ingrédients sont frais et de qualité premium</p>
+      </div>
+      <div class="info-card">
+        <div class="info-icon">🤝</div>
+        <h3>Service Client</h3>
+        <p>Disponible 24/7 via WhatsApp pour vos questions</p>
+      </div>
     </div>
   </div>
 </section>
-
-<!-- FOOTER -->
-<footer id="contact">
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <a href="#" class="brand" style="margin-bottom: 18px;">
-          <span class="brand-mark">NY</span>
-          <span class="brand-text">
-            <span class="le">Le</span>
-            <span class="name">NEW YORKAIS</span>
-          </span>
-        </a>
-        <p>Le smash burger authentique, livré chez vous. Préparé avec passion, servi avec le sourire.</p>
-      </div>
-      <div>
-        <h4>Contact</h4>
-        <a href="tel:0555123456">📞 0555 12 34 56</a>
-        <a href="https://wa.me/213555123456" target="_blank">💬 WhatsApp</a>
-        <a href="https://instagram.com/le.new.yorkais" target="_blank">📸 @le.new.yorkais</a>
-      </div>
-      <div>
-        <h4>Horaires</h4>
-        <p>Lun – Jeu : 11h – 23h</p>
-        <p>Ven : 14h – 23h</p>
-        <p>Sam – Dim : 11h – 00h</p>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2026 Le New Yorkais · Tous droits réservés</span>
-      <span>Made with ❤️ in DZ</span>
-    </div>
-  </div>
-</footer>
 
 <!-- CART DRAWER -->
-<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
-<aside class="cart-drawer" id="cartDrawer">
-  <div class="cart-head">
-    <h2 id="cartTitle">Votre panier</h2>
-    <button class="close-btn" onclick="closeCart()">✕</button>
+<div id="cartOverlay" onclick="closeCart()"></div>
+<div id="cartDrawer">
+  <div class="cart-header">
+    <div id="cartTitle">Votre Panier</div>
+    <button class="cart-close" onclick="closeCart()">✕</button>
   </div>
 
-  <!-- STEP 1: CART -->
-  <div class="checkout-step active" id="step-cart">
-    <div class="cart-body" id="cartBody"></div>
-    <div class="cart-foot hidden" id="cartFoot">
-      <div class="totals">
-        <div class="totals-row"><span>Sous-total</span><span id="subtotal">0 DA</span></div>
-        <div class="totals-row"><span>Livraison</span><span id="delivery">100 DA</span></div>
-        <div class="totals-row total"><span>Total</span><span id="total">0 DA</span></div>
-      </div>
-      <button class="checkout-btn" onclick="goToCheckout()">Commander →</button>
+  <div id="cartBody"></div>
+
+  <div id="cartFoot">
+    <div class="cart-summary">
+      <span>Sous-total :</span>
+      <strong id="subtotal">0 DA</strong>
     </div>
+    <div class="cart-summary">
+      <span>Livraison :</span>
+      <strong id="delivery">0 DA</strong>
+    </div>
+    <div class="cart-total">
+      <span>TOTAL :</span>
+      <strong id="total">0 DA</strong>
+    </div>
+    <button class="checkout-btn" onclick="goToCheckout()">Passer la Commande</button>
   </div>
 
-  <!-- STEP 2: CHECKOUT FORM -->
-  <div class="checkout-step" id="step-form">
-    <div class="cart-body">
-      <button class="back-link" onclick="goToStep('cart')">← Retour</button>
-      <form id="checkoutForm" onsubmit="submitOrder(event)">
-        <div class="form-group">
-          <label>Nom complet <span class="req">*</span></label>
-          <input type="text" name="name" required placeholder="Mohamed Amine">
-        </div>
-        <div class="form-group">
-          <label>Téléphone <span class="req">*</span></label>
-          <input type="tel" name="phone" required placeholder="0555 12 34 56" pattern="[0-9 ]{10,}">
-        </div>
-        <div class="form-group">
-          <label>Wilaya <span class="req">*</span></label>
-          <select name="wilaya" id="wilayaSelect" required onchange="updateCommunes()">
-            <option value="">Choisir une wilaya...</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Commune <span class="req">*</span></label>
-          <select name="commune" id="communeSelect" required disabled>
-            <option value="">Choisissez d'abord une wilaya...</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Adresse précise <span class="req">*</span></label>
-          <textarea name="address" rows="2" required placeholder="N°, rue, immeuble, étage..."></textarea>
-        </div>
-        <div class="form-group">
-          <label>Notes (facultatif)</label>
-          <textarea name="notes" rows="2" placeholder="Sans oignon, bien cuit, etc."></textarea>
-        </div>
-        <div class="form-group">
-          <label>Mode de paiement <span class="req">*</span></label>
-          <div class="pay-options">
-            <label class="pay-opt selected">
-              <input type="radio" name="payment" value="cash" checked>
-              <div class="pay-opt-icon">💵</div>
-              <div class="pay-opt-text">
-                <strong>À la livraison</strong>
-                <span>Espèces au livreur</span>
-              </div>
-            </label>
-            <label class="pay-opt">
-              <input type="radio" name="payment" value="cib">
-              <div class="pay-opt-icon">💳</div>
-              <div class="pay-opt-text">
-                <strong>Carte CIB / Edahabia</strong>
-                <span>Bientôt disponible</span>
-              </div>
-            </label>
+  <!-- CHECKOUT STEPS -->
+  <div id="step-cart" class="checkout-step active"></div>
+
+  <div id="step-form" class="checkout-step">
+    <form id="checkoutForm" onsubmit="submitOrder(event)">
+      <div class="form-group">
+        <label>Nom Complet *</label>
+        <input type="text" name="name" required>
+      </div>
+      <div class="form-group">
+        <label>Téléphone *</label>
+        <input type="tel" name="phone" required>
+      </div>
+      <div class="form-group">
+        <label>Adresse *</label>
+        <input type="text" name="address" placeholder="Rue, numéro..." required>
+      </div>
+      <div class="form-group">
+        <label>Commune *</label>
+        <select name="commune" required>
+          <option value="">-- Sélectionnez --</option>
+          <option value="Alger Centre">Alger Centre</option>
+          <option value="Bab El Oued">Bab El Oued</option>
+          <option value="Casbah">Casbah</option>
+          <option value="Sidi M'Hamed">Sidi M'Hamed</option>
+          <option value="Belcourt">Belcourt</option>
+          <option value="Kouba">Kouba</option>
+          <option value="Bouzaréah">Bouzaréah</option>
+          <option value="Les Eucalyptus">Les Eucalyptus</option>
+          <option value="Hydra">Hydra</option>
+          <option value="Bir Mourad Raïs">Bir Mourad Raïs</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Wilaya *</label>
+        <input type="text" name="wilaya" value="Alger" required>
+      </div>
+      <div class="form-group">
+        <label>Mode de Paiement *</label>
+        <div class="pay-opts">
+          <div class="pay-opt">
+            <input type="radio" id="cash" name="payment" value="cash" required>
+            <label for="cash">💵 Espèces</label>
+          </div>
+          <div class="pay-opt">
+            <input type="radio" id="card" name="payment" value="card">
+            <label for="card">💳 Carte CIB</label>
           </div>
         </div>
-        <button type="submit" class="checkout-btn">Confirmer la commande</button>
-      </form>
-    </div>
-  </div>
-
-  <!-- STEP 3: SUCCESS -->
-  <div class="checkout-step" id="step-success">
-    <div class="cart-body">
-      <div class="success-screen">
-        <div class="success-icon">✓</div>
-        <h2>C'est parti !</h2>
-        <p>Votre commande est bien enregistrée. Nous vous appellons dans quelques minutes pour confirmer.</p>
-        <button class="checkout-btn" onclick="resetOrder()">Nouvelle commande</button>
       </div>
-    </div>
+      <div class="form-group">
+        <label>Notes (Optionnel)</label>
+        <textarea name="notes" rows="3" placeholder="Remarques spéciales, allergies..."></textarea>
+      </div>
+      <button type="submit" class="checkout-btn">Envoyer via WhatsApp</button>
+      <button type="button" class="checkout-btn" onclick="goToStep('cart')" style="background: var(--muted); margin-top: 10px;">Retour</button>
+    </form>
   </div>
-</aside>
 
-<div class="toast" id="toast"></div>
+  <div id="step-success" class="checkout-step">
+    <div class="success-emoji">✅</div>
+    <h3>Commande Envoyée!</h3>
+    <p class="success-text">Votre commande a été envoyée à notre équipe via WhatsApp.<br><br>Vous recevrez une confirmation sous peu.</p>
+    <button class="new-order-btn" onclick="resetOrder()">Nouvelle Commande</button>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div id="toast"></div>
 
 <script>
-  // ====== CONFIGURATION — À MODIFIER ======
+  // ====== CONFIG ======
   const CONFIG = {
     restaurantName: "Le New Yorkais",
-    deliveryFee: 100,
+    whatsappNumber: "213XXXXXXXXX", // Replace with your WhatsApp number
+    deliveryFee: 0,
     minOrder: 500,
     currency: "DA"
   };
 
-  // ====== WILAYAS & COMMUNES ======
-  const WILAYAS_COMMUNES = {
-    "Alger (16)": [
-      "Alger Centre", "Sidi M'Hamed", "El Madania", "Hamma El Annasser", "Bab El Oued",
-      "Bologhine", "Casbah", "Oued Koriche", "Bir Mourad Raïs", "El Biar",
-      "Bouzaréah", "Birkhadem", "El Harrach", "Baraki", "Oued Smar",
-      "Bourouba", "Hussein Dey", "Kouba", "Bachdjerrah", "Dar El Beïda",
-      "Bab Ezzouar", "Ben Aknoun", "Dely Ibrahim", "El Hammamet", "Raïs Hamidou",
-      "Djasr Kasentina", "El Mouradia", "Hydra", "Mohammadia", "Bordj El Kiffan",
-      "El Magharia", "Beni Messous", "Les Eucalyptus", "Birtouta", "Tessala El Merdja",
-      "Ouled Chebel", "Sidi Moussa", "Aïn Taya", "Bordj El Bahri", "El Marsa",
-      "Haraoua", "Rouïba", "Reghaïa", "Aïn Benian", "Staouéli",
-      "Zéralda", "Mahelma", "Rahmania", "Souidania", "Cheraga",
-      "Ouled Fayet", "El Achour", "Draria", "Douera", "Baba Hassen",
-      "Khraïssia", "Saoula"
-    ],
-    "Blida (09)": [
-      "Blida", "Boufarik", "Bouinan", "Soumaa", "Beni Mered", "Ouled Yaïch",
-      "Chebli", "Larbaa", "Bougara", "Mouzaia", "El Affroun", "Oued El Alleug"
-    ],
-    "Boumerdès (35)": [
-      "Boumerdès", "Boudouaou", "Réghaïa", "Khemis El Khechna", "Thénia",
-      "Dellys", "Bordj Menaïel", "Naciria", "Si Mustapha", "Beni Amrane"
-    ],
-    "Tipaza (42)": [
-      "Tipaza", "Cherchell", "Hadjout", "Koléa", "Bou Ismaïl", "Fouka",
-      "Douaouda", "Ahmer El Aïn", "Damous", "Gouraya"
-    ],
-    "Oran (31)": [
-      "Oran", "Bir El Djir", "Es Senia", "Arzew", "Bethioua", "Aïn El Türck",
-      "Mers El Kébir", "Gdyel", "Hassi Bounif", "Sidi Chahmi"
-    ],
-    "Constantine (25)": [
-      "Constantine", "Hamma Bouziane", "Didouche Mourad", "El Khroub", "Aïn Smara",
-      "Zighoud Youcef", "Ibn Ziad", "Aïn Abid"
-    ],
-    "Annaba (23)": [
-      "Annaba", "El Bouni", "El Hadjar", "Sidi Amar", "Berrahal", "Aïn Berda"
-    ],
-    "Sétif (19)": [
-      "Sétif", "El Eulma", "Aïn Oulmène", "Aïn Arnat", "Bougaâ", "Aïn Azel"
-    ],
-    "Batna (05)": [
-      "Batna", "Tazoult", "Aïn Touta", "Barika", "Arris", "Merouana", "N'Gaous"
-    ],
-    "Tizi Ouzou (15)": [
-      "Tizi Ouzou", "Azazga", "Draâ Ben Khedda", "Tigzirt", "Larbaâ Nath Irathen",
-      "Boghni", "Ouadhias", "Aïn El Hammam"
-    ],
-    "Béjaïa (06)": [
-      "Béjaïa", "Akbou", "El Kseur", "Sidi Aïch", "Tichy", "Souk El Tenine",
-      "Aokas", "Amizour"
-    ],
-    "M'Sila (28)": [
-      "M'Sila", "Bou Saâda", "Sidi Aïssa", "Aïn El Melh", "Magra", "Hammam Dhalaa"
-    ]
-  };
-
-  function populateWilayas() {
-    const select = document.getElementById("wilayaSelect");
-    Object.keys(WILAYAS_COMMUNES).forEach(w => {
-      const opt = document.createElement("option");
-      opt.value = w;
-      opt.textContent = w;
-      select.appendChild(opt);
-    });
-  }
-
-  function updateCommunes() {
-    const wilaya = document.getElementById("wilayaSelect").value;
-    const select = document.getElementById("communeSelect");
-    if (!wilaya || !WILAYAS_COMMUNES[wilaya]) {
-      select.innerHTML = '<option value="">Choisissez d\'abord une wilaya...</option>';
-      select.disabled = true;
-      return;
-    }
-    select.disabled = false;
-    select.innerHTML = '<option value="">Choisir une commune...</option>' +
-      WILAYAS_COMMUNES[wilaya].map(c => `<option>${c}</option>`).join("");
-  }
-
   // ====== MENU — VOTRE CARTE RÉELLE ======
   const MENU = [
     // ===== SMASH BURGERS =====
-    { id: 1,  cat: "Smash Burgers", name: "Smash L",            desc: "Le classique : steak smashé, cheddar fondu, salade, sauce maison",       price: 650,  emoji: "🍔" },
-    { id: 2,  cat: "Smash Burgers", name: "Smash XL",           desc: "Double steak smashé, double cheddar, oignon caramélisé",                price: 850,  emoji: "🍔" },
-    { id: 3,  cat: "Smash Burgers", name: "Smash XXL",          desc: "Triple steak smashé, triple cheddar, sauce signature",                  price: 950,  emoji: "🍔", tag: "XXL" },
-    { id: 4,  cat: "Smash Burgers", name: "Smash Crispy",       desc: "Steak smashé, poulet croustillant, double sauce",                        price: 650,  emoji: "🍔" },
-    { id: 5,  cat: "Smash Burgers", name: "Smash Camembert Miel", desc: "Steak smashé, camembert fondant, miel doré, roquette",                price: 850,  emoji: "🍔" },
-    { id: 6,  cat: "Smash Burgers", name: "Smash Mushroom",     desc: "Steak smashé, champignons sautés, fromage suisse, sauce truffée légère", price: 850,  emoji: "🍔" },
-    { id: 7,  cat: "Smash Burgers", name: "Smash Bacon",        desc: "Steak smashé, bacon de bœuf croustillant, cheddar, sauce barbecue",     price: 850,  emoji: "🍔" },
-    { id: 8,  cat: "Smash Burgers", name: "Smash Truffe",       desc: "Steak smashé, parmesan, sauce truffe noire, roquette",                  price: 950,  emoji: "🍔", tag: "Premium" },
-    { id: 9,  cat: "Smash Burgers", name: "Smash Egg",          desc: "Steak smashé, œuf au plat, cheddar, sauce maison",                      price: 750,  emoji: "🍔" },
-    { id: 10, cat: "Smash Burgers", name: "Smash Avocado",      desc: "Steak smashé, avocat frais, cheddar, sauce verte",                      price: 950,  emoji: "🍔" },
-    { id: 11, cat: "Smash Burgers", name: "Smash Bleu",         desc: "Steak smashé, bleu fondu, oignon caramélisé, salade",                   price: 850,  emoji: "🍔" },
-    { id: 12, cat: "Smash Burgers", name: "Smash Pastrami",     desc: "Steak smashé, pastrami fumé, cheddar, moutarde, cornichons",            price: 1100, emoji: "🍔", tag: "Top" },
+    { id: 1,  cat: "Smash Burgers", name: "Smash L",            desc: "Le classique : steak smashé, cheddar fondu, salade, sauce maison",       price: 650,  emoji: "🍔", img: "smash-l.jpg" },
+    { id: 2,  cat: "Smash Burgers", name: "Smash XL",           desc: "Double steak smashé, double cheddar, oignon caramélisé",                price: 850,  emoji: "🍔", img: "smash-xl-850.jpg" },
+    { id: 3,  cat: "Smash Burgers", name: "Smash XXL",          desc: "Triple steak smashé, triple cheddar, sauce signature",                  price: 950,  emoji: "🍔", tag: "XXL", img: "smash-xxl.jpg" },
+    { id: 4,  cat: "Smash Burgers", name: "Smash Crispy",       desc: "Steak smashé, poulet croustillant, double sauce",                        price: 650,  emoji: "🍔", img: "smash-crispy.jpg" },
+    { id: 5,  cat: "Smash Burgers", name: "Smash Camembert Miel", desc: "Steak smashé, camembert fondant, miel doré, roquette",                price: 850,  emoji: "🍔", img: "smash-camembert.jpg" },
+    { id: 6,  cat: "Smash Burgers", name: "Smash Mushroom",     desc: "Steak smashé, champignons sautés, fromage suisse, sauce truffée légère", price: 850,  emoji: "🍔", img: "smash-mushroom.jpg" },
+    { id: 7,  cat: "Smash Burgers", name: "Smash Bacon",        desc: "Steak smashé, bacon de bœuf croustillant, cheddar, sauce barbecue",     price: 850,  emoji: "🍔", img: "smash-bacon.jpg" },
+    { id: 8,  cat: "Smash Burgers", name: "Smash Truffe",       desc: "Steak smashé, parmesan, sauce truffe noire, roquette",                  price: 950,  emoji: "🍔", tag: "Premium", img: "smash-truffe.jpg" },
+    { id: 9,  cat: "Smash Burgers", name: "Smash Egg",          desc: "Steak smashé, œuf au plat, cheddar, sauce maison",                      price: 750,  emoji: "🍔", img: "smash-egg.jpg" },
+    { id: 10, cat: "Smash Burgers", name: "Smash Avocado",      desc: "Steak smashé, avocat frais, cheddar, sauce verte",                      price: 950,  emoji: "🍔", img: "smash-avocado.jpg" },
+    { id: 11, cat: "Smash Burgers", name: "Smash Bleu",         desc: "Steak smashé, bleu fondu, oignon caramélisé, salade",                   price: 850,  emoji: "🍔", img: "smash-bleu.jpg" },
+    { id: 12, cat: "Smash Burgers", name: "Smash Pastrami",     desc: "Steak smashé, pastrami fumé, cheddar, moutarde, cornichons",            price: 1100, emoji: "🍔", tag: "Top", img: "smash-pastrami.jpg" },
 
     // ===== BOXES =====
-    { id: 20, cat: "Boxes", name: "BBQ Box",       desc: "Smash burger + tenders + frites + sauces, le tout dans une box",       price: 1200, emoji: "🍱" },
-    { id: 21, cat: "Boxes", name: "Pink Lady",     desc: "Box premium : burger signature, tenders, frites maison, sauce rosée",  price: 1200, emoji: "🍱" },
-    { id: 22, cat: "Boxes", name: "India Box",     desc: "Box épicée : burger curry, tenders épicés, frites masala",             price: 1300, emoji: "🍱" },
-    { id: 23, cat: "Boxes", name: "Cheesy Bacon",  desc: "Box ultra fromage : burger bacon, tenders, fries cheesy, sauces",      price: 1500, emoji: "🍱", tag: "Best" },
-    { id: 24, cat: "Boxes", name: "Tuflato Box",   desc: "Box truffe : burger truffé, tenders, frites parmesan, sauce truffe",   price: 1800, emoji: "🍱", tag: "Premium" },
-    { id: 25, cat: "Boxes", name: "Crispy Box",    desc: "Tout en croustillant : crispy burger, tenders, fries, sauces",         price: 1800, emoji: "🍱" },
+    { id: 20, cat: "Boxes", name: "BBQ Box",       desc: "Smash burger + tenders + frites + sauces, le tout dans une box",       price: 1200, emoji: "🍱", img: "bbq-box.jpg" },
+    { id: 21, cat: "Boxes", name: "Pink Lady",     desc: "Box premium : burger signature, tenders, frites maison, sauce rosée",  price: 1200, emoji: "🍱", img: "pink-lady-box.jpg" },
+    { id: 22, cat: "Boxes", name: "India Box",     desc: "Box épicée : burger curry, tenders épicés, frites masala",             price: 1300, emoji: "🍱", img: "india-box.jpg" },
+    { id: 23, cat: "Boxes", name: "Cheesy Bacon",  desc: "Box ultra fromage : burger bacon, tenders, fries cheesy, sauces",      price: 1500, emoji: "🍱", tag: "Best", img: "cheesy-bacon-box.jpg" },
+    { id: 24, cat: "Boxes", name: "Tuflato Box",   desc: "Box truffe : burger truffé, tenders, frites parmesan, sauce truffe",   price: 1800, emoji: "🍱", tag: "Premium", img: "truffle-box.jpg" },
+    { id: 25, cat: "Boxes", name: "Crispy Box",    desc: "Tout en croustillant : crispy burger, tenders, fries, sauces",         price: 1800, emoji: "🍱", img: "crispy-box.jpg" },
 
     // ===== SMASH BOXES =====
     { id: 30, cat: "Smash Boxes", name: "Box · 1 SMASH + 4 tenders", desc: "1 smash burger + 4 tenders + frites + boisson",  price: 1800, emoji: "📦" },
@@ -1356,7 +1057,7 @@
         <div class="item-img">
           <span class="item-num">N°${String(item.id).padStart(2, '0')}</span>
           ${item.tag ? `<span class="item-tag">${item.tag}</span>` : ''}
-          <div class="emoji">${item.emoji}</div>
+          ${item.img ? `<img src="${item.img}" alt="${item.name}" class="item-photo">` : `<div class="emoji">${item.emoji}</div>`}
         </div>
         <div class="item-body">
           <h3 class="item-name">${item.name}</h3>
@@ -1465,47 +1166,35 @@
   });
 
   // ====== SUBMIT ORDER → WHATSAPP ======
-  // ====== GOOGLE SHEETS LOGGING ======
-  const SHEETS_URL = "https://script.google.com/macros/s/AKfycbxtnn9q70zy1dxZoyIfIpU29m-F0gL3WeiEYtEnVFK9pDeudcALATONROxmp85WSxcrsw/exec";
-
   function submitOrder(e) {
     e.preventDefault();
     const data = new FormData(e.target);
     const subtotal = cart.reduce((s, c) => s + c.price * c.qty, 0);
     const total = subtotal + CONFIG.deliveryFee;
 
-    const itemsList = cart.map(c => `${c.qty}× ${c.name}`).join(" | ");
+    const itemsList = cart.map(c =>
+      `• ${c.qty}× ${c.name} — ${c.price * c.qty} ${CONFIG.currency}`
+    ).join("\n");
 
-    const payload = {
-      name:     data.get("name"),
-      phone:    data.get("phone"),
-      address:  data.get("address"),
-      commune:  data.get("commune"),
-      wilaya:   data.get("wilaya"),
-      items:    itemsList,
-      subtotal: subtotal,
-      delivery: CONFIG.deliveryFee,
-      total:    total,
-      payment:  data.get("payment") === "cash" ? "Espèces" : "Carte CIB",
-      notes:    data.get("notes") || ""
-    };
+    const msg =
+`🛵 *NOUVELLE COMMANDE — ${CONFIG.restaurantName}*
 
-    // ── FIRE-AND-FORGET: send in background, don't block UI ──
-    // sendBeacon is ideal — non-blocking, browser handles delivery even if user navigates away
-    const blob = new Blob([JSON.stringify(payload)], { type: "text/plain;charset=utf-8" });
-    const sent = navigator.sendBeacon ? navigator.sendBeacon(SHEETS_URL, blob) : false;
-    if (!sent) {
-      // Fallback for old browsers — fetch but don't await
-      fetch(SHEETS_URL, {
-        method: "POST",
-        mode: "no-cors",
-        headers: { "Content-Type": "text/plain;charset=utf-8" },
-        body: JSON.stringify(payload),
-        keepalive: true
-      }).catch(err => console.warn("Sheets log failed:", err));
-    }
+👤 *Client :* ${data.get('name')}
+📞 *Téléphone :* ${data.get('phone')}
+📍 *Adresse :* ${data.get('address')}, ${data.get('commune')}, ${data.get('wilaya')}
 
-    // ── INSTANT SUCCESS — customer sees confirmation immediately ──
+📝 *Commande :*
+${itemsList}
+
+💰 *Sous-total :* ${subtotal} ${CONFIG.currency}
+🛵 *Livraison :* ${CONFIG.deliveryFee} ${CONFIG.currency}
+*TOTAL : ${total} ${CONFIG.currency}*
+
+💳 *Paiement :* ${data.get('payment') === 'cash' ? 'Espèces à la livraison' : 'Carte CIB'}
+${data.get('notes') ? `\n📌 *Notes :* ${data.get('notes')}` : ''}`;
+
+    const url = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(msg)}`;
+    window.open(url, '_blank');
     goToStep("success");
   }
 
@@ -1531,7 +1220,6 @@
   renderCategories();
   renderMenu();
   updateCart();
-  populateWilayas();
 </script>
 </body>
 </html>
