@@ -482,6 +482,12 @@
     border: 3px solid var(--ink);
     box-shadow: inset 0 -4px 0 rgba(0,0,0,0.06);
   }
+  .item-img .item-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-bottom: 3px solid var(--ink);
+  }
   .item-num {
     position: absolute;
     top: 8px; left: 10px;
@@ -1203,26 +1209,26 @@
   // ====== MENU — VOTRE CARTE RÉELLE ======
   const MENU = [
     // ===== SMASH BURGERS =====
-    { id: 1,  cat: "Smash Burgers", name: "Smash L",            desc: "Le classique : steak smashé, cheddar fondu, salade, sauce maison",       price: 650,  emoji: "🍔" },
-    { id: 2,  cat: "Smash Burgers", name: "Smash XL",           desc: "Double steak smashé, double cheddar, oignon caramélisé",                price: 850,  emoji: "🍔" },
-    { id: 3,  cat: "Smash Burgers", name: "Smash XXL",          desc: "Triple steak smashé, triple cheddar, sauce signature",                  price: 950,  emoji: "🍔", tag: "XXL" },
-    { id: 4,  cat: "Smash Burgers", name: "Smash Crispy",       desc: "Steak smashé, poulet croustillant, double sauce",                        price: 650,  emoji: "🍔" },
-    { id: 5,  cat: "Smash Burgers", name: "Smash Camembert Miel", desc: "Steak smashé, camembert fondant, miel doré, roquette",                price: 850,  emoji: "🍔" },
-    { id: 6,  cat: "Smash Burgers", name: "Smash Mushroom",     desc: "Steak smashé, champignons sautés, fromage suisse, sauce truffée légère", price: 850,  emoji: "🍔" },
-    { id: 7,  cat: "Smash Burgers", name: "Smash Bacon",        desc: "Steak smashé, bacon de bœuf croustillant, cheddar, sauce barbecue",     price: 850,  emoji: "🍔" },
-    { id: 8,  cat: "Smash Burgers", name: "Smash Truffe",       desc: "Steak smashé, parmesan, sauce truffe noire, roquette",                  price: 950,  emoji: "🍔", tag: "Premium" },
-    { id: 9,  cat: "Smash Burgers", name: "Smash Egg",          desc: "Steak smashé, œuf au plat, cheddar, sauce maison",                      price: 750,  emoji: "🍔" },
-    { id: 10, cat: "Smash Burgers", name: "Smash Avocado",      desc: "Steak smashé, avocat frais, cheddar, sauce verte",                      price: 950,  emoji: "🍔" },
-    { id: 11, cat: "Smash Burgers", name: "Smash Bleu",         desc: "Steak smashé, bleu fondu, oignon caramélisé, salade",                   price: 850,  emoji: "🍔" },
-    { id: 12, cat: "Smash Burgers", name: "Smash Pastrami",     desc: "Steak smashé, pastrami fumé, cheddar, moutarde, cornichons",            price: 1100, emoji: "🍔", tag: "Top" },
+    { id: 1,  cat: "Smash Burgers", name: "Smash L",            desc: "Le classique : steak smashé, cheddar fondu, salade, sauce maison",       price: 650,  emoji: "🍔", img: "8A3FC03F-66FA-4692-B4DD-A8E19A82CDF1.jpeg" },
+    { id: 2,  cat: "Smash Burgers", name: "Smash XL",           desc: "Double steak smashé, double cheddar, oignon caramélisé",                price: 850,  emoji: "🍔", img: "90071CF4-A7FB-40EE-8391-5E051E3A6966.jpeg" },
+    { id: 3,  cat: "Smash Burgers", name: "Smash XXL",          desc: "Triple steak smashé, triple cheddar, sauce signature",                  price: 950,  emoji: "🍔", tag: "XXL", img: "9782A51E-4ECE-4F01-818C-ADFFB01675D4.jpeg" },
+    { id: 4,  cat: "Smash Burgers", name: "Smash Crispy",       desc: "Steak smashé, poulet croustillant, double sauce",                        price: 650,  emoji: "🍔", img: "9A68E98C-8ADA-4701-B075-9F956FE2AE32.jpeg" },
+    { id: 5,  cat: "Smash Burgers", name: "Smash Camembert Miel", desc: "Steak smashé, camembert fondant, miel doré, roquette",                price: 850,  emoji: "🍔", img: "29C42A05-9DC3-4E5C-B5B6-AE2AE2E28CEC.jpeg" },
+    { id: 6,  cat: "Smash Burgers", name: "Smash Mushroom",     desc: "Steak smashé, champignons sautés, fromage suisse, sauce truffée légère", price: 850,  emoji: "🍔", img: "5B56A4B0-3763-4953-9BB7-3647F8651329.jpeg" },
+    { id: 7,  cat: "Smash Burgers", name: "Smash Bacon",        desc: "Steak smashé, bacon de bœuf croustillant, cheddar, sauce barbecue",     price: 850,  emoji: "🍔", img: "1E243EF6-F74F-4248-BF9A-1B4960D01093.jpeg" },
+    { id: 8,  cat: "Smash Burgers", name: "Smash Truffe",       desc: "Steak smashé, parmesan, sauce truffe noire, roquette",                  price: 950,  emoji: "🍔", tag: "Premium", img: "58126A6A-BA5D-4779-A6BD-46081223349C.jpeg" },
+    { id: 9,  cat: "Smash Burgers", name: "Smash Egg",          desc: "Steak smashé, œuf au plat, cheddar, sauce maison",                      price: 750,  emoji: "🍔", img: "501B411C-D557-4C68-8C3D-548101B1F76B.jpeg" },
+    { id: 10, cat: "Smash Burgers", name: "Smash Avocado",      desc: "Steak smashé, avocat frais, cheddar, sauce verte",                      price: 950,  emoji: "🍔", img: "29E309E3-D345-492B-8A19-C5A8F9C30BED.jpeg" },
+    { id: 11, cat: "Smash Burgers", name: "Smash Bleu",         desc: "Steak smashé, bleu fondu, oignon caramélisé, salade",                   price: 850,  emoji: "🍔", img: "6137D026-FC5E-4A43-8C77-BB01C66EF08E.jpeg" },
+    { id: 12, cat: "Smash Burgers", name: "Smash Pastrami",     desc: "Steak smashé, pastrami fumé, cheddar, moutarde, cornichons",            price: 1100, emoji: "🍔", tag: "Top", img: "6610BA62-ABA8-4B26-9F0C-84C7ABAC3BDF.jpeg" },
 
     // ===== BOXES =====
-    { id: 20, cat: "Boxes", name: "BBQ Box",       desc: "Smash burger + tenders + frites + sauces, le tout dans une box",       price: 1200, emoji: "🍱" },
-    { id: 21, cat: "Boxes", name: "Pink Lady",     desc: "Box premium : burger signature, tenders, frites maison, sauce rosée",  price: 1200, emoji: "🍱" },
-    { id: 22, cat: "Boxes", name: "India Box",     desc: "Box épicée : burger curry, tenders épicés, frites masala",             price: 1300, emoji: "🍱" },
-    { id: 23, cat: "Boxes", name: "Cheesy Bacon",  desc: "Box ultra fromage : burger bacon, tenders, fries cheesy, sauces",      price: 1500, emoji: "🍱", tag: "Best" },
-    { id: 24, cat: "Boxes", name: "Tuflato Box",   desc: "Box truffe : burger truffé, tenders, frites parmesan, sauce truffe",   price: 1800, emoji: "🍱", tag: "Premium" },
-    { id: 25, cat: "Boxes", name: "Crispy Box",    desc: "Tout en croustillant : crispy burger, tenders, fries, sauces",         price: 1800, emoji: "🍱" },
+    { id: 20, cat: "Boxes", name: "BBQ Box",       desc: "Smash burger + tenders + frites + sauces, le tout dans une box",       price: 1200, emoji: "🍱", img: "AA12AD47-4C10-4781-A8B5-32FF74536EC3.jpeg" },
+    { id: 21, cat: "Boxes", name: "Pink Lady",     desc: "Box premium : burger signature, tenders, frites maison, sauce rosée",  price: 1200, emoji: "🍱", img: "A770FEAF-535A-4E9D-8EB4-E160FBBF02A1.jpeg" },
+    { id: 22, cat: "Boxes", name: "India Box",     desc: "Box épicée : burger curry, tenders épicés, frites masala",             price: 1300, emoji: "🍱", img: "B2AFE5AF-1F3D-4AB3-9A64-77957FC98845.jpeg" },
+    { id: 23, cat: "Boxes", name: "Cheesy Bacon",  desc: "Box ultra fromage : burger bacon, tenders, fries cheesy, sauces",      price: 1500, emoji: "🍱", tag: "Best", img: "D2239632-5435-43F6-BAD5-6BCF0F35E18F.jpeg" },
+    { id: 24, cat: "Boxes", name: "Tuflato Box",   desc: "Box truffe : burger truffé, tenders, frites parmesan, sauce truffe",   price: 1800, emoji: "🍱", tag: "Premium", img: "E78E59BA-EEC9-459A-8509-85E121238D14.jpeg" },
+    { id: 25, cat: "Boxes", name: "Crispy Box",    desc: "Tout en croustillant : crispy burger, tenders, fries, sauces",         price: 1800, emoji: "🍱", img: "14149A66-BBE1-4CFC-B936-3A343D46739D.jpeg" },
 
     // ===== SMASH BOXES =====
     { id: 30, cat: "Smash Boxes", name: "Box · 1 SMASH + 4 tenders", desc: "1 smash burger + 4 tenders + frites + boisson",  price: 1800, emoji: "📦" },
@@ -1284,7 +1290,7 @@
         <div class="item-img">
           <span class="item-num">N°${String(item.id).padStart(2, '0')}</span>
           ${item.tag ? `<span class="item-tag">${item.tag}</span>` : ''}
-          <div class="emoji">${item.emoji}</div>
+          ${item.img ? `<img src="${item.img}" alt="${item.name}" class="item-photo">` : `<div class="emoji">${item.emoji}</div>`}
         </div>
         <div class="item-body">
           <h3 class="item-name">${item.name}</h3>
